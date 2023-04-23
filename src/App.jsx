@@ -27,7 +27,10 @@ function App() {
       },
     })
       .then((res) => {
-        responseHandler(res);
+        if (res.status === 200) {
+          setObj(res.data);
+          setLoading(false);
+        }
       })
       .catch((e) => {
         setLoading(false);
@@ -35,12 +38,6 @@ function App() {
       });
   };
 
-  const responseHandler = (res) => {
-    if (res.status === 200) {
-      setObj(res.data);
-      setLoading(false);
-    }
-  };
   return (
     <div className="container">
       <div className="container-column">
