@@ -4,7 +4,7 @@ import "./App.css";
 
 function App() {
   const [loading, setLoading] = useState(false);
-  let [obj, setObj] = useState({ choices: [] });
+  let [res, setRes] = useState({ choices: [] });
   let [prompt, setPrompt] = useState("");
 
   const getRes = () => {
@@ -28,7 +28,7 @@ function App() {
     })
       .then((res) => {
         if (res.status === 200) {
-          setObj(res.data);
+          setRes(res.data);
           setLoading(false);
         }
       })
@@ -60,7 +60,7 @@ function App() {
         <div className="result-container">
           <p>
             {!loading &&
-              obj?.choices?.map((v, i) => <div key={i}>{v.text}</div>)
+              res?.choices?.map((v, i) => <div key={i}>{v.text}</div>)
             }
           </p>
         </div>
