@@ -58,11 +58,9 @@ function App() {
           </button>
         </div>
         <div className="result-container">
-          <p>
             {!loading &&
               res?.choices?.map((v, i) => <div key={i}>{v.text}</div>)
             }
-          </p>
         </div>
       </div>
     </div>
